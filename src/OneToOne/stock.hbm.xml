@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="OneToOne.Stock" table="STOCK">
+        
+        <id name="stockId" type="java.lang.Integer">
+			<column name="STOCK_ID" />
+			<generator class="increment" />
+		</id>
+		<property name="stockCode" type="string">
+			<column name="STOCK_CODE" length="10"  />
+		</property>
+		<property name="stockName" type="string">
+			<column name="STOCK_NAME" length="20" />
+		</property>
+		<one-to-one name="stockDetail" class="OneToOne.StockDetail"
+			cascade="save-update"></one-to-one>
+        
+    </class>
+</hibernate-mapping>
